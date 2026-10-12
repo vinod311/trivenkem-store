@@ -8,10 +8,10 @@ export const FIREBASE_CONFIG = {
 };
 
 export const ALLOWED_EMAILS = [
-  "member1@yourcompany.com",
-  "member2@yourcompany.com",
-  "member3@yourcompany.com",
-  "member4@yourcompany.com"
+  "vinod@trivenkem.com"
+];
+
+export const ADMIN_EMAILS = ALLOWED_EMAILS;
 ];
 
 export const ADMIN_EMAILS = ALLOWED_EMAILS;
