@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#a8802f"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><title>Trivenkem · Fragrance Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf6ef;--card:#fff;--ink:#2a2118;--mute:#7d7266;--line:#e8dfd0;--gold:#a8802f;--soft:#f3ece0;--ok:#2f8f5b;--bad:#c0463a;--sh:0 6px 24px rgba(60,40,10,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14110d;--card:#1e1a14;--ink:#f1e8d8;--mute:#a09584;--line:#342d22;--gold:#d4aa5c;--soft:#2a241b;--sh:0 6px 24px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#14110d;--card:#1e1a14;--ink:#f1e8d8;--mute:#a09584;--line:#342d22;--gold:#d4aa5c;--soft:#2a241b;--sh:0 6px 24px rgba(0,0,0,.4)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 18px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand h1{font-size:28px;letter-spacing:.5px}.brand small{display:block;color:var(--gold);letter-spacing:3px;font-size:10px;text-transform:uppercase;margin-top:-2px}
+.sp{flex:1}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 14px;font-weight:500}
+.btn:hover{border-color:var(--gold)}.pri{background:var(--gold);border-color:var(--gold);color:#fff}.dng{color:var(--bad)}
+.ico{width:38px;height:38px;padding:0;display:grid;place-items:center}
+.search{flex:1 1 260px;position:relative}.search input{width:100%;padding:10px 14px 10px 38px;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+.search:before{content:"⌕";position:absolute;left:13px;top:6px;font-size:20px;color:var(--mute)}
+main{max-width:1400px;margin:0 auto;padding:16px 18px 90px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;text-align:left;box-shadow:var(--sh)}
+.stat b{font:600 30px 'Cormorant Garamond',serif;display:block;line-height:1}.stat span{color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+.tabs{display:flex;gap:6px;margin:14px 0}.tab{border:0;background:none;padding:8px 16px;border-radius:99px;font-weight:500;color:var(--mute)}.tab.on{background:var(--ink);color:var(--bg)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.filters select{padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{--c:hsl(var(--h) 45% 48%);background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;transition:transform .15s,border-color .15s;position:relative}
+.card:hover{transform:translateY(-3px);border-color:var(--c)}
+.card:before{content:"";height:4px;background:var(--c)}
+.cbody{display:flex;gap:12px;padding:14px 14px 8px}
+.can{flex:none;width:58px;height:78px;border-radius:10px 10px 8px 8px;background:linear-gradient(160deg,var(--c),color-mix(in srgb,var(--c) 55%,#000));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:8px 2px;position:relative;box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}
+.can b{font:700 22px 'Cormorant Garamond',serif}.can i{font:600 10px Inter;font-style:normal;background:rgba(0,0,0,.28);border-radius:6px;padding:2px 5px}
+.ci{min-width:0;flex:1}.ci h3{font-size:21px;line-height:1.1;overflow-wrap:anywhere}.code{color:var(--mute);font-size:12px;margin:2px 0 6px;overflow-wrap:anywhere}
+.tag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:99px;background:var(--soft);margin:0 4px 4px 0}.tag.pf{background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--ink)}
+.pyr{padding:0 14px;font-size:12.5px;color:var(--mute)}.pyr div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pyr b{color:var(--c);display:inline-block;width:46px;font-weight:600}
+.ft{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;margin-top:auto;font-size:13px}
+.st{display:inline-flex;align-items:center;gap:6px;font-weight:500}.st:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok)}.st.Empty:before{background:var(--bad)}.st.Low:before{background:#d99a1c}
+.acts{display:flex;border-top:1px solid var(--line)}.acts button{flex:1;border:0;background:none;padding:9px;font-size:13px;color:var(--mute)}.acts button:hover{background:var(--soft);color:var(--ink)}.acts button+button{border-left:1px solid var(--line)}
+.empty{text-align:center;color:var(--mute);padding:60px 10px}
+.rack{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:16px;box-shadow:var(--sh)}
+.rack h2{font-size:26px;margin-bottom:10px}.shelf{display:flex;gap:10px;padding:8px 0;border-top:1px dashed var(--line);align-items:flex-start}
+.shelf>span{flex:none;width:58px;font-weight:600;color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:1px;padding-top:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{--c:hsl(var(--h) 45% 48%);border:1px solid color-mix(in srgb,var(--c) 50%,var(--line));background:color-mix(in srgb,var(--c) 12%,var(--card));border-radius:8px;padding:4px 10px;font-size:12.5px}.chip.Empty{opacity:.5;text-decoration:line-through}
+.ov{position:fixed;inset:0;background:rgba(10,6,0,.55);z-index:50;display:flex;align-items:flex-end;justify-content:center;padding:0}
+.md{background:var(--bg);width:100%;max-width:680px;max-height:92%;overflow:auto;border-radius:20px 20px 0 0;padding:22px;border:1px solid var(--line)}
+@media(min-width:700px){.ov{align-items:center;padding:20px}.md{border-radius:20px}}
+.md h2{font-size:32px;line-height:1.05}.sec{margin-top:18px}.sec h4{margin:0 0 8px;font:600 11px Inter;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.tier{display:flex;gap:10px;padding:10px 12px;border-radius:12px;background:var(--card);border:1px solid var(--line);margin-bottom:6px}.tier b{flex:none;width:62px;color:var(--c);font:600 20px 'Cormorant Garamond',serif}.tier div{flex:1}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kv div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 12px}.kv small{display:block;color:var(--mute);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.note{background:var(--soft);border-left:3px solid var(--gold);padding:10px 12px;border-radius:8px;font-size:13px;margin-top:8px;overflow-wrap:anywhere}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.fg label{font-size:12px;color:var(--mute);display:block}.fg .w{grid-column:1/-1}
+.fg input,.fg select,.fg textarea{width:100%;padding:9px 11px;border-radius:10px;border:1px solid var(--line);background:var(--card);margin-top:3px}.fg textarea{min-height:56px;resize:vertical}
+.mf{display:flex;gap:8px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;z-index:90;display:flex;gap:14px;align-items:center;box-shadow:var(--sh)}.toast button{background:none;border:0;color:var(--gold);font-weight:600}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;height:54px;border-radius:99px;padding:0 22px;box-shadow:0 8px 24px rgba(0,0,0,.25);font-weight:600}
+@media(max-width:560px){.kv,.fg{grid-template-columns:1fr}.brand h1{font-size:24px}}
+</style></head><body>
+<header><div class="row">
+ <div class="brand"><h1>Trivenkem</h1><small>Fragrance Store</small></div>
+ <div class="search"><input id="q" placeholder="Search name, code, profile, notes…"></div>
+ <button class="btn ico" id="fs" title="Full screen (store display)">⛶</button>
+ <button class="btn ico" id="th" title="Light / dark">◐</button>
+ <button class="btn" id="data">Data</button>
+</div></header>
+<main>
+ <div class="stats" id="stats"></div>
+ <div class="tabs" id="tabs"></div>
+ <div class="filters" id="filters"></div>
+ <div id="out"></div>
+</main>
+<button class="btn pri fab" id="add">＋ Add product</button>
+<div id="layer"></div>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {initializeFirestore,persistentLocalCache,persistentMultipleTabManager,collection,doc,setDoc,deleteDoc,onSnapshot} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {FIREBASE_CONFIG,ADMIN_EMAILS} from "./firebase-config.js";
+const SEED={"items":[],"lib":[]};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const HU={FLORAL:335,FRESH:190,WOODY:28,CITRUS:48,FRUITY:12,AQUATIC:205,HERBAL:125,ORIENTAL:280,'ROSE OUD':350,ORANGE:30,JASMINE:320,LAVENDER:265};
+const hue=p=>{p=(p||'').toUpperCase();for(const k in HU)if(p.includes(k))return HU[k];let h=0;for(const c of p)h=(h*31+c.charCodeAt(0))%360;return p?h:40};
+let S={admin:false,ready:false,err:'',items:[],lib:[],q:'',cat:'',prof:'',st:'',rack:'',view:'grid'},undo=null;
+const sj=v=>v&&typeof v==='object'?'{'+Object.keys(v).sort().map(k=>JSON.stringify(k)+':'+sj(v[k])).join(',')+'}':JSON.stringify(v);
+let db,auth,known=new Map(),knownL=new Map(),subbed=false;
+function reset(){S.items=JSON.parse(JSON.stringify(SEED.items));S.lib=JSON.parse(JSON.stringify(SEED.lib));save()}
+function sync(col,arr,m){const cur=new Map(arr.map(p=>[p.id,sj(p)]));const fail=e=>toast('NOT SAVED: '+(e.code||'error'));
+ for(const p of arr){const j=cur.get(p.id);if(m.get(p.id)!==j){m.set(p.id,j);setDoc(doc(db,col,p.id),JSON.parse(JSON.stringify(p))).catch(fail)}}
+ for(const id of [...m.keys()])if(!cur.has(id)){m.delete(id);deleteDoc(doc(db,col,id)).catch(fail)}}
+function save(){if(!S.admin||!db)return;sync('products',S.items,known);sync('library',S.lib,knownL)}
+const loc=p=>p.rack?`R${p.rack} · Row ${p.row}`:(p.locRaw||'Unassigned');
+const get=id=>S.items.find(p=>p.id===id);
+const uniq=k=>[...new Set(S.items.map(p=>p[k]).filter(Boolean))].sort();
+const hay=p=>[p.name,p.code,p.category,p.profile,p.top,p.mid,p.base,p.internal,p.refType,p.apps,loc(p)].join(' ').toLowerCase();
+function list(){const q=S.q.toLowerCase();return S.items.filter(p=>(!q||hay(p).includes(q))&&(!S.cat||p.category===S.cat)&&(!S.prof||p.profile===S.prof)&&(!S.st||p.status===S.st)&&(!S.rack||p.rack===S.rack)).sort((a,b)=>a.name.localeCompare(b.name))}
+function render(){
+ $('#data').textContent=S.admin?'Team · Data':'Team login';$('#data').dataset.a=S.admin?'data':'login';$('#add').style.display=S.admin?'':'none';
+ if(!S.ready||S.err){$('#out').innerHTML=`<div class="empty"><h2>${S.err?'Problem':'Loading…'}</h2>${esc(S.err)}</div>`;$('#stats').innerHTML=$('#tabs').innerHTML=$('#filters').innerHTML='';return}
+ const A=S.items;
+ $('#stats').innerHTML=[['Products',A.length,''],['Available',A.filter(p=>p.status==='Available').length,'Available'],['Empty cans',A.filter(p=>p.status==='Empty').length,'Empty'],['Racks',uniq('rack').length,''],['Categories',uniq('category').length,'']].map(([l,n,f])=>`<button class="stat" data-a="stat" data-f="${f}"><b>${n}</b><span>${l}</span></button>`).join('');
+ $('#tabs').innerHTML=[['grid','Showcase'],['map','Store map'],['lib',`Reference library (${S.lib.length})`]].map(([k,l])=>`<button class="tab ${S.view===k?'on':''}" data-a="tab" data-v="${k}">${l}</button>`).join('');
+ const opt=(k,all,cur)=>`<select data-f="${k}"><option value="">${all}</option>${uniq(k).map(v=>`<option ${v===cur?'selected':''}>${esc(v)}</option>`).join('')}</select>`;
+ $('#filters').innerHTML=S.view==='lib'?'':opt('category','All categories',S.cat)+opt('profile','All profiles',S.prof)+opt('status','All status',S.st)+`<select data-f="rack"><option value="">All racks</option>${uniq('rack').map(v=>`<option value="${v}" ${v===S.rack?'selected':''}>Rack ${v}</option>`).join('')}</select>`+(S.cat||S.prof||S.st||S.rack?'<button class="btn" data-a="clear">Clear</button>':'');
+ $('#filters').querySelectorAll('select').forEach(s=>s.onchange=()=>{const m={category:'cat',profile:'prof',status:'st',rack:'rack'};S[m[s.dataset.f]]=s.value;render()});
+ const o=$('#out');
+ if(S.view==='lib'){o.innerHTML=`<p style="color:var(--mute)">Fragrance profiles from your 2nd Excel that are not yet in the store database. They are kept here safely — add any one to the store with one tap.</p><div class="grid">${S.lib.map(libCard).join('')}</div>`;return}
+ const L=list();
+ if(S.view==='map'){const racks=[...new Set(L.map(p=>p.rack||'—'))].sort();o.innerHTML=racks.map(r=>{const rows=[...new Set(L.filter(p=>(p.rack||'—')===r).map(p=>p.row||'—'))].sort((a,b)=>a-b);return `<div class="rack"><h2>${r==='—'?'Unassigned':'Rack '+r}</h2>${rows.map(w=>`<div class="shelf"><span>Row ${w}</span><div class="chips">${L.filter(p=>(p.rack||'—')===r&&(p.row||'—')===w).map(p=>`<button class="chip ${p.status}" style="--h:${hue(p.profile||p.refType)}" data-a="view" data-id="${p.id}">${esc(p.name)}</button>`).join('')}</div></div>`).join('')}</div>`}).join('')||'<div class="empty">No products match.</div>';return}
+ o.innerHTML=L.length?`<div class="grid">${L.map(card).join('')}</div>`:(S.items.length?'<div class="empty"><h2>No products found</h2>Try a different search or clear the filters.</div>':`<div class="empty"><h2>The store database is empty</h2>${S.admin?'<p>Load your original Excel data (104 products) into the shared database.</p><button class="btn pri" data-a="seed">Load original data</button>':'<p>Ask the admin to load the data.</p>'}</div>`)}
+const ini=n=>n.split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+function card(p){const t=[['Top',p.top],['Mid',p.mid],['Base',p.base]].filter(x=>x[1]);
+ return `<article class="card" style="--h:${hue(p.profile||p.refType)}" data-a="view" data-id="${p.id}"><div class="cbody"><div class="can"><b>${esc(ini(p.name))}</b><i>${p.rack?`R${p.rack}·${p.row}`:'—'}</i></div><div class="ci"><h3>${esc(p.name)}</h3><div class="code">${esc(p.code||'No code')}</div>${p.category?`<span class="tag">${esc(p.category)}</span>`:''}${p.profile?`<span class="tag pf">${esc(p.profile)}</span>`:''}</div></div>
+ <div class="pyr">${t.length?t.map(x=>`<div><b>${x[0]}</b>${esc(x[1])}</div>`).join(''):'<div>No notes added yet</div>'}</div>
+ <div class="ft"><span>📍 ${esc(loc(p))} · ${esc(p.stock||'—')}</span><span class="st ${p.status}">${esc(p.status)}</span></div>
+ ${S.admin?`<div class="acts"><button data-a="view" data-id="${p.id}">View</button><button data-a="edit" data-id="${p.id}">Edit</button><button data-a="del" data-id="${p.id}">Delete</button></div>`:''}</article>`}
+function libCard(p){return `<article class="card" style="--h:${hue(p.profile)}"><div class="cbody"><div class="can"><b>${esc(ini(p.name))}</b><i>REF</i></div><div class="ci"><h3>${esc(p.name)}</h3><div class="code">${esc(p.profile)}</div><span class="tag">${esc(p.category)}</span></div></div><div class="pyr">${[['Top',p.top],['Mid',p.mid],['Base',p.base]].map(x=>`<div><b>${x[0]}</b>${esc(x[1])}</div>`).join('')}</div><div class="ft"></div>${S.admin?`<div class="acts"><button data-a="libadd" data-id="${p.id}">Add to store</button><button data-a="libdel" data-id="${p.id}">Remove</button></div>`:''}</article>`}
+const chips=t=>t.split(/,|\//).map(s=>s.trim()).filter(Boolean).map(s=>`<span class="tag pf">${esc(s)}</span>`).join('');
+function view(id){const p=get(id);if(!p)return;const T=[['Top',p.top],['Middle',p.mid],['Base',p.base]];
+ modal(`<div style="--c:hsl(${hue(p.profile||p.refType)} 45% 48%)"><div class="row"><div class="sp"><h2>${esc(p.name)}</h2><div class="code">${esc(p.code||'No code')}</div></div><span class="st ${p.status}">${esc(p.status)}</span></div>
+ <div style="margin-top:8px">${p.category?`<span class="tag">${esc(p.category)}</span>`:''}${p.profile?`<span class="tag pf">${esc(p.profile)}</span>`:''}${p.refType&&p.refType!==p.profile?`<span class="tag">Type: ${esc(p.refType)}</span>`:''}</div>
+ <div class="sec"><h4>Storage location</h4><div class="kv"><div><small>Rack</small>${esc(p.rack||'—')}</div><div><small>Row</small>${esc(p.row||'—')}</div><div><small>Stock</small>${esc(p.stock||'—')}</div><div><small>Original entry</small>${esc(p.locRaw||'—')}</div></div></div>
+ <div class="sec"><h4>Fragrance notes ${p.notesSource==='profiles'?'· from Fragrance Profiles':p.notesSource==='database'?'· original database entry':''}</h4>${T.some(x=>x[1])?T.filter(x=>x[1]).map(x=>`<div class="tier"><b>${x[0]}</b><div>${chips(x[1])}</div></div>`).join(''):'<div class="note">No notes yet. Use Edit to add them.</div>'}</div>
+ ${p.suggest&&S.admin?`<div class="note"><b>Possible match found in Fragrance Profiles</b> (${esc(p.suggest.src)} · ${esc(p.suggest.endUse)}). Category differs, so nothing was changed automatically.<br>Top: ${esc(p.suggest.top)}<br>Middle: ${esc(p.suggest.mid)}<br>Base: ${esc(p.suggest.base)}<div class="mf"><button class="btn" data-a="dismiss" data-id="${p.id}">Ignore</button><button class="btn pri" data-a="apply" data-id="${p.id}">Apply these notes</button></div></div>`:''}
+ ${p.apps||p.dosage?`<div class="sec"><h4>Applications</h4><div class="kv"><div><small>Verified applications</small>${esc(p.apps||'—')}</div><div><small>Dosage</small>${esc(p.dosage||'—')}</div></div></div>`:''}
+ ${p.internal?`<div class="sec"><h4>Internal notes</h4><div class="note">${esc(p.internal)}</div></div>`:''}
+ ${p.legacyNotes&&p.notesSource==='profiles'?`<div class="sec"><h4>Previous note entry (kept for safety)</h4><div class="note" style="white-space:pre-wrap">${esc(p.legacyNotes)}</div></div>`:''}
+ <div class="mf">${S.admin?`<button class="btn dng" data-a="del" data-id="${p.id}">Delete</button>`:''}<button class="btn" data-a="close">Close</button>${S.admin?`<button class="btn pri" data-a="edit" data-id="${p.id}">Edit</button>`:''}</div></div>`)}
+function modal(h){$('#layer').innerHTML=`<div class="ov" data-a="ovl"><div class="md">${h}</div></div>`}
+const close=()=>$('#layer').innerHTML='';
+function form(p,libId){const n=!p;p=p||{};const f=(k,l,w,t)=>`<div class="${w?'w':''}"><label>${l}${t?`<textarea id="f_${k}">${esc(p[k])}</textarea>`:`<input id="f_${k}" value="${esc(p[k])}">`}</label></div>`;
+ modal(`<h2>${n?'Add product':'Edit product'}</h2><div class="fg">${f('name','Product name *')}${f('code','Product code')}
+ <div><label>Category<input id="f_category" list="cats" value="${esc(p.category)}"></label><datalist id="cats">${uniq('category').map(c=>`<option>${esc(c)}`).join('')}</datalist></div>
+ <div><label>Profile<input id="f_profile" list="profs" value="${esc(p.profile)}"></label><datalist id="profs">${uniq('profile').map(c=>`<option>${esc(c)}`).join('')}</datalist></div>
+ ${f('top','Top notes',1,1)}${f('mid','Middle notes',1,1)}${f('base','Base notes',1,1)}
+ ${f('rack','Rack no.')}${f('row','Row no.')}${f('stock','Stock (e.g. 1KG)')}
+ <div><label>Status<select id="f_status">${['Available','Low','Empty'].map(s=>`<option ${s===(p.status||'Available')?'selected':''}>${s}</option>`).join('')}</select></label></div>
+ ${f('apps','Verified applications',1)}${f('dosage','Recommended dosage')}${f('internal','Internal notes',1,1)}</div>
+ <div class="mf"><button class="btn" data-a="close">Cancel</button><button class="btn pri" data-a="save" data-id="${p.id||''}" data-lib="${libId||''}">Save</button></div>`)}
+function saveForm(id,libId){const g=k=>$('#f_'+k).value.trim();if(!g('name')){alert('Product name is required');return}
+ const d={};['name','code','category','profile','top','mid','base','rack','row','stock','status','apps','dosage','internal'].forEach(k=>d[k]=g(k));
+ d.rack=d.rack.replace(/\D/g,'');d.row=d.row.replace(/\D/g,'');d.name=d.name.toUpperCase();
+ if(id){Object.assign(get(id),d,{locRaw:d.rack?`R${d.rack}-R${d.row}`:'',notesSource:'edited'})}
+ else{S.items.push(Object.assign({id:'n'+Date.now(),refType:'',legacyNotes:'',notesSource:'edited',suggest:null,locRaw:d.rack?`R${d.rack}-R${d.row}`:''},d));if(libId)S.lib=S.lib.filter(x=>x.id!==libId)}
+ save();close();render();toast(id?'Changes saved':'Product added')}
+function del(id){const p=get(id);modal(`<h2>Delete “${esc(p.name)}”?</h2><p>This removes the product from the store list. You will get an Undo option right after.</p><div class="mf"><button class="btn" data-a="close">Cancel</button><button class="btn pri" style="background:var(--bad);border-color:var(--bad)" data-a="delok" data-id="${id}">Yes, delete</button></div>`)}
+function toast(m,u){clearTimeout(toast.t);const t=document.createElement('div');t.className='toast';t.innerHTML=`<span>${esc(m)}</span>${u?'<button data-a="undo">Undo</button>':''}`;document.body.querySelectorAll('.toast').forEach(x=>x.remove());document.body.append(t);toast.t=setTimeout(()=>t.remove(),u?7000:2200)}
+function loginModal(){modal(`<h2>Team login</h2><p style="color:var(--mute)">Sign in with one of the four approved company accounts. All four approved team accounts can add, edit, and delete.</p><div class="fg"><div class="w"><label>Email<input id="em" type="email" autocomplete="username"></label></div><div class="w"><label>Password<input id="pw" type="password" autocomplete="current-password"></label></div></div><div class="mf"><button class="btn" data-a="close">Cancel</button><button class="btn pri" data-a="dologin">Login</button></div>`)}
+function dataModal(){const j=JSON.stringify({items:S.items,lib:S.lib});modal(`<h2>Data &amp; backup</h2><p style="color:var(--mute)">All devices share one live database. As an extra safety, copy a backup now and then and keep it somewhere safe. To restore, paste a backup and press Restore.</p><div class="fg"><div class="w"><label>Backup / restore text<textarea id="bk" style="min-height:140px;font-size:11px">${esc(j)}</textarea></label></div></div><div class="mf"><button class="btn" data-a="logout">Log out</button><button class="btn dng" data-a="rst">Reload original Excel data</button><button class="btn" data-a="copy">Copy backup</button><button class="btn pri" data-a="restore">Restore</button></div>`)}
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,id=b.dataset.id;
+ if(a==='ovl'){if(e.target===b)close();return}
+ if(e.target.closest('.acts')&&a==='view')e.stopPropagation();
+ ({close,view:()=>view(id),edit:()=>form(get(id)),del:()=>del(id),
+ delok:()=>{const i=S.items.findIndex(p=>p.id===id);undo={p:S.items[i],i};S.items.splice(i,1);save();close();render();toast('Product deleted',1)},
+ undo:()=>{if(undo){S.items.splice(undo.i,0,undo.p);undo=null;save();render();toast('Restored')}},
+ save:()=>saveForm(id,b.dataset.lib),clear:()=>{S.cat=S.prof=S.st=S.rack='';render()},
+ tab:()=>{S.view=b.dataset.v;render()},stat:()=>{S.view='grid';S.cat=S.prof=S.rack='';S.st=b.dataset.f;render()},
+ apply:()=>{const p=get(id),s=p.suggest;Object.assign(p,{top:s.top,mid:s.mid,base:s.base,refType:s.refType,notesSource:'profiles',suggest:null});save();render();view(id);toast('Notes applied')},
+ dismiss:()=>{get(id).suggest=null;save();view(id)},
+ libadd:()=>{const l=S.lib.find(x=>x.id===id);form({name:l.name,category:l.category,profile:l.profile,top:l.top,mid:l.mid,base:l.base,status:'Available'},id)},
+ libdel:()=>{S.lib=S.lib.filter(x=>x.id!==id);save();render()},
+ data:dataModal,login:loginModal,seed:()=>reset(),logout:()=>{signOut(auth);close()},
+ dologin:()=>signInWithEmailAndPassword(auth,$('#em').value.trim(),$('#pw').value).then(close).catch(()=>alert('Wrong email or password')),
+ copy:async()=>{const t=$('#bk');t.select();try{await navigator.clipboard.writeText(t.value);toast('Backup copied')}catch(x){document.execCommand('copy');toast('Backup selected – copy it')}},
+ restore:()=>{try{const d=JSON.parse($('#bk').value);if(!Array.isArray(d.items))throw 0;S.items=d.items;S.lib=d.lib||[];save();close();render();toast('Backup restored')}catch(x){alert('That is not a valid backup.')}},
+ rst:()=>{if(confirm('Replace ALL current data with the original Excel data? Your edits will be lost.')){reset();close();render()}}}[a]||(()=>{}))()});
+$('#q').oninput=e=>{S.q=e.target.value;render()};
+$('#add').onclick=()=>form();
+$('#fs').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(e){}};
+$('#th').onclick=()=>{const r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches);r.dataset.theme=d?'light':'dark'};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+const OK=FIREBASE_CONFIG&&!String(FIREBASE_CONFIG.apiKey).startsWith('PASTE');
+const sub=(col,arr,m)=>onSnapshot(collection(db,col),s=>{const a=[];m.clear();s.forEach(d=>{const v=d.data();a.push(v);m.set(v.id,sj(v))});S[arr]=a;S.ready=true;render()},e=>{S.err='Cannot read data ('+e.code+'). Check approved team emails and Firestore rules.';S.ready=true;render()});
+if(OK){const app=initializeApp(FIREBASE_CONFIG);db=initializeFirestore(app,{localCache:persistentLocalCache({tabManager:persistentMultipleTabManager()})});auth=getAuth(app);
+ onAuthStateChanged(auth,u=>{if(!u){S.admin=false;S.err='Please log in with an approved team account to view company data.';S.ready=true;render();return}
+  S.admin=!!u.email&&ADMIN_EMAILS.map(x=>x.toLowerCase()).includes(u.email.toLowerCase());
+  S.err='';S.ready=false;
+  if(!subbed){subbed=true;sub('products','items',known);sub('library','lib',knownL)}render()})}
+else{S.err='Setup needed: open firebase-config.js and paste your Firebase settings (see SETUP.md).';S.ready=true}
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+render();
+</script></body></html>

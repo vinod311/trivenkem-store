@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null && request.auth.token.email != null;
+    }
+    function approvedTeamMember() {
+      return signedIn() && request.auth.token.email in [
+        'member1@yourcompany.com',
+        'member2@yourcompany.com',
+        'member3@yourcompany.com',
+        'member4@yourcompany.com'
+      ];
+    }
+    function admin() {
+      return signedIn() && request.auth.token.email in [
+        'member1@yourcompany.com'
+      ];
+    }
+    match /{col}/{id} {
+      allow read: if approvedTeamMember();
+      allow create, update, delete: if approvedTeamMember();
+    }
+  }
+}
