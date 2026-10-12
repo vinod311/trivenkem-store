@@ -1,19 +1,17 @@
-// Paste the Firebase web app configuration here. These values identify the project;
-// Firestore security rules (not this file) protect the data.
 export const FIREBASE_CONFIG = {
-  apiKey: "PASTE_API_KEY",
-  authDomain: "PASTE_PROJECT.firebaseapp.com",
-  projectId: "PASTE_PROJECT_ID",
-  storageBucket: "PASTE_PROJECT.appspot.com",
-  messagingSenderId: "PASTE",
-  appId: "PASTE"
+  apiKey: "AIzaSyA2mX2q2PNG8D3gpIKdk3e3LAfvQFUBAHc",
+  authDomain: "trivenkem-store.firebaseapp.com",
+  projectId: "trivenkem-store",
+  storageBucket: "trivenkem-store.firebasestorage.app",
+  messagingSenderId: "969866194907",
+  appId: "1:969866194907:web:82f5afc2cfe82a45dec1fe"
 };
-// Replace all four placeholders with the exact email addresses for your four team members.
-// All four approved members can add/edit/delete. Keep this list in sync with firestore.rules.
+
 export const ALLOWED_EMAILS = [
   "member1@yourcompany.com",
   "member2@yourcompany.com",
   "member3@yourcompany.com",
   "member4@yourcompany.com"
 ];
+
 export const ADMIN_EMAILS = ALLOWED_EMAILS;
